@@ -25,7 +25,7 @@ server {
 	# SSL configuration
 	listen 443 ssl;
 	listen [::]:443 ssl;
-        ssl_certificate ~/BabySpiCroft-Setup-Files/Monitor_Website_Root/Certs/BabySpiCroft.crt;
+        ssl_certificate ~/BabySpiCroft-Setup-Files/Monitor_Website_Root/Certs/BabySpiCroft.pem;
         ssl_certificate_key ~/BabySpiCroft-Setup-Files/Monitor_Website_Root/Certs/BabySpiCroft.key;
 	
 	# Note: You should disable gzip for SSL traffic.
