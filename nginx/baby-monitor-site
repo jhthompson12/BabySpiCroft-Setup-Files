@@ -25,8 +25,8 @@ server {
 	# SSL configuration
 	listen 443 ssl;
 	listen [::]:443 ssl;
-        ssl_certificate ~/BabySpiCroft-Setup-Files/Monitor_Website_Root/Certs/BabySpiCroft.pem;
-        ssl_certificate_key ~/BabySpiCroft-Setup-Files/Monitor_Website_Root/Certs/BabySpiCroft.key;
+        ssl_certificate /home/pi/BabySpiCroft-Setup-Files/Monitor_Website_Root/Certs/BabySpiCroft.pem;
+        ssl_certificate_key /home/pi/BabySpiCroft-Setup-Files/Monitor_Website_Root/Certs/BabySpiCroft.key;
 	
 	# Note: You should disable gzip for SSL traffic.
 	# See: https://bugs.debian.org/773332
@@ -39,7 +39,7 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	root ~/BabySpiCroft-Setup-Files/Monitor_Website_Root;
+	root /home/pi/BabySpiCroft-Setup-Files/Monitor_Website_Root;
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
