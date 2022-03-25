@@ -137,9 +137,9 @@ sudo systemctl start janus-stream.service
 ```
 
 ## Test it out
-If everything is working properly, you should be able to open Google Chrome on your phone or computer and go to `https://<your-rapsberry-pi's-IP-address>
+If everything is working properly, you should be able to open Google Chrome on your phone or computer and go to `https://<your-rapsberry-pi's-IP-address>`
 
-**Bonus steps:**
+## Bonus steps:
 1. Make the baby monitor services start on boot
 ```
 sudo systemctl enable janus.service
@@ -151,4 +151,4 @@ sudo cp Other/disable-led.service /etc/systemd/system
 sudo systemctl start disable-led.service
 sudo systemctl enable disable-led.service
 ```
-3. Install the created root Certificate on your devices to avoid the pesky "The certificate is not trusted because it is self-signed." errors that you occasionally will have to click through.
+3.  [Install the created root Certificate](https://www.bounca.org/tutorials/install_root_certificate.html) (the .pem file) on your devices to avoid the pesky "The certificate is not trusted because it is self-signed." errors that you occasionally will have to click through.
