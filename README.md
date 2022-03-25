@@ -1,4 +1,6 @@
 # BabySpiCroft-Setup-Files
+![BabySpiCroft_Diagram](https://user-images.githubusercontent.com/45108842/160038711-efffced4-d49b-483a-aba7-686ef98bccdb.png)
+
 If you are skipping the smart speaker functionality and just want the baby monitor on a Raspberry Pi, skip ahead to [Install Dependencies](https://github.com/jhthompson12/BabySpiCroft-Setup-Files/new/main?readme=1#install-dependencies)
 
 ## Set up Picroft
@@ -34,6 +36,8 @@ sudo apt install libmicrohttpd-dev libjansson-dev \
   libopus-dev libogg-dev libcurl4-openssl-dev liblua5.3-dev \
   libconfig-dev pkg-config gengetopt libtool automake
 ```           
+
+#### Install libnice
 **If** you are **not** using the Picroft image:
 ```
 apt install git python3-pip
@@ -44,28 +48,27 @@ sudo apt install -y ninja-build
 ```
 pip3 install meson
 sudo apt install -y ninja-build
-```           
-
-#### Install libnice
+``` 
+then
 ```
 git clone https://gitlab.freedesktop.org/libnice/libnice
 cd libnice
 meson --prefix=/usr build && ninja -C build && sudo ninja -C build install
+cd ..
 ```
 #### Install newer version of libsrtp
 ```
-cd ..
 wget https://github.com/cisco/libsrtp/archive/v2.2.0.tar.gz
 tar xfv v2.2.0.tar.gz
 cd libsrtp-2.2.0
 sudo apt install openssl
 ./configure --prefix=/usr --enable-openssl
 make shared_library && sudo make install
+cd ..
 ```
 
 #### Install Janus
 ```
-cd ..
 git clone https://github.com/meetecho/janus-gateway.git
 cd janus-gateway
 sh autogen.sh
@@ -73,12 +76,12 @@ sh autogen.sh
 make
 sudo make install
 sudo make configs
+cd ..
 ```
        
 ## Final setup 
 Clone this project:
 ```
-cd ~
 git clone https://github.com/jhthompson12/BabySpiCroft-Setup-Files.git
 cd BabySpiCroft-Setup-Files
 ```
@@ -126,28 +129,30 @@ mkdir Monitor_Website_Root/Certs
 cd Monitor_Website_Root/Certs
 openssl genrsa -out BabySpiCroft.key 2048
 openssl req -x509 -new -nodes -key BabySpiCroft.key -sha256 -days 1825 -out BabySpiCroft.pem
+cd ~
 ```
 You will be asked a bunch of questions, you can answer them however you’d like. I responded to the Country, State, and Common Name (as “BabySpiCroft”)
        
-Start services
+Start the services
 ```
-cd ~
 sudo systemctl start janus.service
 sudo systemctl start janus-stream.service
 ```
 
 ## Test it out
-If everything is working properly, you should be able to open Google Chrome on your phone or computer and go to `https://<your-rapsberry-pi's-IP-address>`
+If everything is working properly, you should be able to open Google Chrome on your phone or computer and go to `https://<your-rapsberry-pi's-IP-address>`. Note, this will probably not work on Firefox or maybe even Chrome on MacOS until you install the root certificate on the cennecting device. 
+
+![Monitor_Screenshot](https://user-images.githubusercontent.com/45108842/160038652-e9e3a987-685a-49d9-b871-9316c6e25f2f.png)
 
 ## Bonus steps:
-1. Make the baby monitor services start on boot
+1. Make the baby monitor services start on boot so that if there's a power outage or you reboot the baby monitor automatically runs:
 ```
 sudo systemctl enable janus.service
 sudo systemctl enable janus-stream.service
 ```
-2. Add a service that turns off the Pi’s LEDs after boot (since they’re pretty bright and this is going in a nursery...)
+2. Add a service that turns off the Pi’s LEDs after boot. They’re pretty bright and distracting and this is likely going into a nursery...
 ```
-sudo cp Other/disable-led.service /etc/systemd/system
+sudo cp ~/BabySpiCroft-Setup-Files/Other/disable-led.service /etc/systemd/system
 sudo systemctl start disable-led.service
 sudo systemctl enable disable-led.service
 ```
