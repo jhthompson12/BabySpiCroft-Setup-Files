@@ -22,7 +22,7 @@ Run `sudo apt update`
 sudo apt install -y gstreamer1.0-tools gstreamer1.0-plugins-bad gstreamer1.0-plugins-good gstreamer1.0-alsa
 sudo apt install autoconf automake libtool pkg-config libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libraspberrypi-dev
 git clone https://github.com/thaytan/gst-rpicamsrc.git
-cd gst-raspicamsrc
+cd gst-rpicamsrc
 ./autogen.sh --prefix=/usr --libdir=/usr/lib/arm-linux-gnueabihf/
 make
 sudo make install
