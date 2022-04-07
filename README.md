@@ -115,6 +115,7 @@ sudo apt install nginx
 sudo cp nginx/baby-monitor-site /etc/nginx/sites-available
 sudo ln -s /etc/nginx/sites-available/baby-monitor-site /etc/nginx/sites-enabled	
 sudo rm /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx
 ```               
 
 Move stream services over for `systemctl`
