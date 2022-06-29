@@ -1,4 +1,6 @@
 # BabySpiCroft-Setup-Files
+Check out [this blog post](https://jhthompson12.github.io/2022-03-26-Baby-SpiCroft/) for more background and details about this project!
+
 ![BabySpiCroft_Diagram](https://user-images.githubusercontent.com/45108842/160038711-efffced4-d49b-483a-aba7-686ef98bccdb.png)
 
 If you are skipping the smart speaker functionality and just want the baby monitor on a Raspberry Pi, skip ahead to [Install Dependencies](https://github.com/jhthompson12/BabySpiCroft-Setup-Files/new/main?readme=1#install-dependencies)
