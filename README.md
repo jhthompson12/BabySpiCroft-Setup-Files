@@ -143,7 +143,7 @@ sudo systemctl start janus-stream.service
 ```
 
 ## Test it out
-If everything is working properly, you should be able to open Google Chrome on your phone or computer and go to `https://<your-rapsberry-pi's-IP-address>`. Note, this will probably not work on Firefox or maybe even Chrome on MacOS until you install the root certificate on the cennecting device. 
+If everything is working properly, you should be able to open Google Chrome on your phone or computer and go to `https://<your-rapsberry-pi's-IP-address>`. Note, this will probably not work on Firefox or maybe even Chrome on MacOS until you install the root certificate on the connecting device. 
 
 ![Monitor_Screenshot](https://user-images.githubusercontent.com/45108842/160038652-e9e3a987-685a-49d9-b871-9316c6e25f2f.png)
 
