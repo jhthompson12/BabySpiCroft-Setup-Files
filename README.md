@@ -42,7 +42,7 @@ sudo apt install libmicrohttpd-dev libjansson-dev \
 #### Install libnice
 **If** you are **not** using the Picroft image:
 ```
-apt install git python3-pip
+sudo apt install git python3-pip
 sudo pip3 install meson
 sudo apt install -y ninja-build
 ```       
