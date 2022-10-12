@@ -138,6 +138,7 @@ You will be asked a bunch of questions, you can answer them however you’d like
        
 Start the services
 ```
+sudo systemctl restart nginx
 sudo systemctl start janus.service
 sudo systemctl start janus-stream.service
 ```
