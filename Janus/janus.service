@@ -1,6 +1,7 @@
 [Unit]
 Description=Janus WebRTC Server
-After=network.target
+Wants=janus-stream.service
+After=janus-stream.service
 
 [Service]
 Type=simple
